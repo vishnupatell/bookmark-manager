@@ -1,0 +1,52 @@
+# Node.js modules
+node_modules/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+
+# Vercel serverless functions build cache
+.vercel
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Build files
+build/
+dist/
+
+# Dependency directories (for packages that use different package managers)
+bower_components/
+
+# npm package-lock files (if you're using yarn)
+package-lock.json
+yarn.lock
+
+# Coverage directory used by testing tools
+coverage/
+
+# IDE-specific files (if you are using VS Code or other IDEs)
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Testing output
+test-results/
+
+# Jest temporary files
+jest/
+
+# Optional log files or files to ignore when using Git hooks
+.git-*
