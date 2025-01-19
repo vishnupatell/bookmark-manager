@@ -19,6 +19,11 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.urlencoded({ extended: true })); 
 
+
+export default (req, res) => {
+    res.status(200).json({ message: 'Hello from /api/whats' });
+  };
+  
 app.post("/signup",async(req, res) => {
     try{
         
