@@ -12,8 +12,9 @@ const { User, Details } = require("./db");
 
 app.use(express.json());
 app.use(cors({
-    origin: 'https://bookmark-manager-frontendappl-git-207ace-vishnupatells-projects.vercel.app/',  
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],  
+    origin: 'https://bookmark-manager-frontendapplication-2cz1yw1pg.vercel.app/', // Frontend domain
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization']
 }));
 app.use(express.urlencoded({ extended: true })); 
 
