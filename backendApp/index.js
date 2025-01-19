@@ -11,7 +11,12 @@ const { signUpZod, loginZod } = require("./zod");
 const { User, Details } = require("./db");
 
 app.use(express.json());
-app.use(cors());
+const corsOptions = {
+    origin: ["https://your-frontend-domain.com", "http://localhost:3000"], 
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true
+  };
+app.use(cors(corsOptions));
 app.use(express.urlencoded({ extended: true })); 
 
 app.post("/signup",async(req, res) => {
