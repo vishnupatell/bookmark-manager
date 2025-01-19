@@ -4,6 +4,7 @@ const zod = require("zod");
 const cors = require("cors");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+require('dotenv').config();
 const JWT_TOKEN =  process.env.JWT_SECRET;
 
 const { signUpZod, loginZod } = require("./zod");
@@ -39,20 +40,19 @@ app.post("/signup",async(req, res) => {
             password: hashedPassword
         })
         if(!user){
-            return res.status(404).json({
+            return res.status(500).json({
                 message:"Couldn't create the account"
             })
         }
-        const user_id = user._id
-        const token = jwt.sign({id:user_id},JWT_TOKEN);
-
+        const user_id = user._id;
+        const token = jwt.sign({ id: user_id }, JWT_TOKEN);
         res.json({
             message: "Account created succesfully",
             token: token
         })
 
     }catch(error){
-        return res.status(404).json({
+        return res.status(500).json({
             message:" Something went wrong with the server",
             error:error
         })
@@ -77,9 +77,12 @@ app.post("/login", async(req, res) => {
         if(find){
             const storedPassword = find.password;
             const isMatch = await bcrypt.compare(password, storedPassword);
+            const user_id = find._id
+            const token = jwt.sign({id:user_id},JWT_TOKEN);
             if(isMatch){
                 return res.json({
                     message: "Logged in  successfully",
+                    token:token
                 })
             }
         }
@@ -96,19 +99,18 @@ app.post("/login", async(req, res) => {
 
 app.post("/details", async(req, res) =>{
     try{
-
         const body = req.body;
         const tokenHeader = req.headers.token;
         const {urlName, url, type} = body;
         const token = jwt.verify(tokenHeader, JWT_TOKEN);
         const userId = token.id;
-        
         const create = await Details.create({
             userId: userId,
             urlName: urlName,
             url: url,
             type: type
         })
+
     
         if(create){
             return res.json({
