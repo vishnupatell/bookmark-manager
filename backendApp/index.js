@@ -12,7 +12,7 @@ const { User, Details } = require("./db");
 
 app.use(express.json());
 app.use(cors({
-    origin: 'https://bookmark-manager-frontendapplication.vercel.app/',  
+    origin: 'https://bookmark-manager-frontendappl-git-207ace-vishnupatells-projects.vercel.app/',  
     methods: ['GET', 'POST', 'PUT', 'DELETE'],  
 }));
 app.use(express.urlencoded({ extended: true })); 
