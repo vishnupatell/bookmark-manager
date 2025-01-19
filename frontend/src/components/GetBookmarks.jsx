@@ -7,7 +7,7 @@ const GetBookmarks = () => {
     useEffect(() => {
         const fetchBookmarks = async () => {
             try {
-                const result = await axios.get("http://localhost:3000/getDetails", {
+                const result = await axios.get("https://bookmark-manager-chi.vercel.app/getDetails", {
                     headers: {
                         token: localStorage.getItem("jwtToken")
                     }

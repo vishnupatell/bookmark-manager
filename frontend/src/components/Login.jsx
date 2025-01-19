@@ -14,7 +14,7 @@ const Login = () => {
                 return;
             }
             setEmpty(false);
-            const submit = await axios.post('http://localhost:3000/login', {
+            const submit = await axios.post('https://bookmark-manager-chi.vercel.app/login', {
                 userName: username,
                 password: password,
             });

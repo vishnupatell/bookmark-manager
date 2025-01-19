@@ -20,7 +20,7 @@ const Homepage = () => {
             }
             setEmpty(false); 
 
-            const response = await axios.post("http://localhost:3000/details", {
+            const response = await axios.post("https://bookmark-manager-chi.vercel.app/details", {
                 urlName: urlName,
                 url: url,
                 type: type
