@@ -11,12 +11,10 @@ const { signUpZod, loginZod } = require("./zod");
 const { User, Details } = require("./db");
 
 app.use(express.json());
-const corsOptions = {
-    origin: ["https://bookmark-manager-frontendapplication.vercel.app/", "http://localhost:3000"], 
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true
-  };
-app.use(cors(corsOptions));
+app.use(cors({
+    origin: 'https://bookmark-manager-frontendapplication.vercel.app',  
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],  
+}));
 app.use(express.urlencoded({ extended: true })); 
 
 
