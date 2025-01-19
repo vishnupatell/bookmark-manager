@@ -12,7 +12,7 @@ const { User, Details } = require("./db");
 
 app.use(express.json());
 const corsOptions = {
-    origin: ["https://your-frontend-domain.com", "http://localhost:3000"], 
+    origin: ["https://bookmark-manager-frontendapplication.vercel.app/", "http://localhost:3000"], 
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true
   };
